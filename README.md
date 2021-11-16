@@ -1,6 +1,5 @@
-# CodingNomads Java Fundamentals - Kyle's Edit #3 
-
-editing README
+# CodingNomads Java Fundamentals - edit (branch)
+>>>>>>> kyle
 
 This project contains a variety of textbook examples and labs focused on Java labs_examples.fundamentals.
 
