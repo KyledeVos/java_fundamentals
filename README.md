@@ -1,5 +1,7 @@
 # CodingNomads Java Fundamentals - edit
 
+editing README
+
 This project contains a variety of textbook examples and labs focused on Java labs_examples.fundamentals.
 
 ## - edit Getting Started
