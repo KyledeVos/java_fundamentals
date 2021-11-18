@@ -20,6 +20,70 @@ Fundamentals Exercise 1: CLI
 
 Kyle Terminal Commands and Output
 
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/Lab_Submissions (master)
+$ mkdir Terminal_Testing
+
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/Lab_Submissions (master)
+$ cd Terminal_Testing/
+
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/Lab_Submissions/Terminal_Testing (master)
+$ touch file1.txt file2.txt file3.txt
+
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/Lab_Submissions/Terminal_Testing (master)
+$ pwd
+/c/Users/Kyle de Vos/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/Lab_Submissions/Terminal_Testing
+
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/Lab_Submissions/Terminal_Testing (master)
+$ ls -al
+total 0
+drwxr-xr-x 1 Kyle de Vos 197121 0 Nov 18 22:54 ./
+drwxr-xr-x 1 Kyle de Vos 197121 0 Nov 18 22:54 ../
+-rw-r--r-- 1 Kyle de Vos 197121 0 Nov 18 22:54 file1.txt
+-rw-r--r-- 1 Kyle de Vos 197121 0 Nov 18 22:54 file2.txt
+-rw-r--r-- 1 Kyle de Vos 197121 0 Nov 18 22:54 file3.txt
+
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/Lab_Submissions/Terminal_Testing (master)
+$ mkdir New_folder
+
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/Lab_Submissions/Terminal_Testing (master)
+$ cp file1.txt New_folder/
+
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/Lab_Submissions/Terminal_Testing (master)
+$ mv file2.txt New_folder/
+
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/Lab_Submissions/Terminal_Testing (master)
+$ ls
+New_folder/  file1.txt  file3.txt
+
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/Lab_Submissions/Terminal_Testing (master)
+$ mkdir To_remove
+
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/Lab_Submissions/Terminal_Testing (master)
+$ rm file3.txt
+
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/Lab_Submissions/Terminal_Testing (master)
+$ rmdir To_remove/
+
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/Lab_Submissions/Terminal_Testing (master)
+$ ls
+New_folder/  file1.txt
+
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/Lab_Submissions/Terminal_Testing (master)
+$ vim file1.txt
+
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/Lab_Submissions/Terminal_Testing (master)
+$ cat file1.txt
+this has been edited. search word: Nomads
+
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/Lab_Submissions/Terminal_Testing (master)
+$ grep file1.txt Nomads
+grep: Nomads: No such file or directory
+
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/Lab_Submissions/Terminal_Testing (master)
+$ grep Nomads file1.txt
+this has been edited. search word: Nomads
+
+
 
 
 
