@@ -32,3 +32,212 @@ Cloning repository from Github
     3. Create new repository on Github
     4. Add new remote on local machine
     5. Push to new Github repository
+
+
+Kyle CLI commands and output
+
+//1)
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals (master)
+$ mkdir git_practice
+
+//2a)
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals (master)
+$ cd git_practice/
+
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/git_practice (master)
+$ git init .
+Initialized empty Git repository in C:/Users/Kyle de Vos/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/git_practice/.git/
+
+//2b)
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/git_practice (master)
+$ touch file1.txt
+
+//2c)
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/git_practice (master)
+$ git add file1.txt
+
+//2d)
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/git_practice (master)
+$ git commit -m "created new file1 in git_practice"
+[master (root-commit) 62fcc29] created new file1 in git_practice
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file1.txt
+
+2e)
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/git_practice (master)
+$ git remote add origin https://github.com/KyledeVos/git_practice.git
+
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/git_practice (master)
+$ git push
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/git_practice (master)
+$ git branch -M main
+
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/git_practice (main)
+$ git push -u origin main
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 243 bytes | 243.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/KyledeVos/git_practice.git
+ * [new branch]      main -> main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+
+2f i)
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/git_practice (main)
+$ vim file1.txt
+
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/git_practice (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+2f ii)
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/git_practice (main)
+$ git add file1.txt
+warning: LF will be replaced by CRLF in file1.txt.
+The file will have its original line endings in your working directory
+
+2f iii)
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/git_practice (main)
+$ git commit -m "modified file1"
+[main 47b347b] modified file1
+ 1 file changed, 1 insertion(+)
+
+2f iv)
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/git_practice (main)
+$ git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Writing objects: 100% (3/3), 283 bytes | 283.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/KyledeVos/git_practice.git
+   62fcc29..47b347b  main -> main
+
+2f i)
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/git_practice (main)
+$ touch file2.txt
+
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/git_practice (main)
+$ vim file3.txt
+
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/git_practice (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file2.txt
+        file3.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+2f ii)
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/git_practice (main)
+$ git add file2.txt file3.txt
+warning: LF will be replaced by CRLF in file3.txt.
+The file will have its original line endings in your working directory
+
+2f iii)
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/git_practice (main)
+$ git commit -m "created new empty file2 and added text to file3"
+[main 15d0b4d] created new empty file2 and added text to file3
+ 2 files changed, 1 insertion(+)
+ create mode 100644 file2.txt
+ create mode 100644 file3.txt
+
+2f iv)
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/git_practice (main)
+$ git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 364 bytes | 364.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/KyledeVos/git_practice.git
+   47b347b..15d0b4d  main -> main
+
+
+//Adding a Remote
+
+//2.
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/git_practice (main)
+$ git remote set-url origin https://github.com/KyledeVos/git_practice2.git
+
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/git_practice (main)
+$ git remote -v
+origin  https://github.com/KyledeVos/git_practice2.git (fetch)
+origin  https://github.com/KyledeVos/git_practice2.git (push)
+
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/git_practice (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+//3.
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/git_practice (main)
+$ git push
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (9/9), 817 bytes | 408.00 KiB/s, done.
+Total 9 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/KyledeVos/git_practice2.git
+ * [new branch]      main -> main
+
+
+//Cloning repository from Github
+
+//1. and 2.
+
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/git_practice (main)
+$ git clone https://github.com/open-guides/og-aws.git
+Cloning into 'og-aws'...
+remote: Enumerating objects: 2912, done.
+remote: Counting objects: 100% (18/18), done.
+remote: Compressing objects: 100% (12/12), done.
+remote: Total 2912 (delta 10), reused 14 (delta 6), pack-reused 2894
+Receiving objects: 100% (2912/2912), 6.81 MiB | 1.81 MiB/s, done.
+Resolving deltas: 100% (1744/1744), done.
+
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/git_practice (main)
+$ ls
+file1.txt  file2.txt  file3.txt  og-aws/
+
+//4.
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/git_practice (main)
+$ git remote add kyle https://github.com/KyledeVos/Git_Practice3.git
+
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/git_practice (main)
+$ git branch -M main
+
+
+5.
+Kyle de Vos@LAPTOP-B4PISML2 MINGW64 ~/Desktop/CodingNomadsCodes/Labs/onLine-java-fundamentals/git_practice (main)
+$ git push -u kyle main
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (9/9), 817 bytes | 408.00 KiB/s, done.
+Total 9 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/KyledeVos/Git_Practice3.git
+ * [new branch]      main -> main
+Branch 'main' set up to track remote branch 'main' from 'kyle'.
