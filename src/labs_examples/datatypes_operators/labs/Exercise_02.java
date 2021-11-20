@@ -23,7 +23,20 @@ public class Exercise_02 {
 
     public static void main(String[] args) {
 
-        // write code here
+        //1) Widening
 
+        int myInt = 10;
+        double myDouble = myInt;
+        System.out.println("Double value is " + myDouble);
+
+        //2) Narrowing
+
+        double newDoubleValue = 10.5;
+        int newIntValue = (int) newDoubleValue;
+        System.out.println("New Integer value is: " + newIntValue);
+
+        //In which direction is information lost?
+        
+        // Information is lost with narrowing
     }
 }
