@@ -13,11 +13,18 @@ package labs_examples.datatypes_operators.labs;
  */
 
 public class Exercise_01 {
-
+    
     public static void main(String[] args) {
 
-        // write code here
+        int myInt = 1;
+        double myDouble = 2.56;
+        float myFloat = 5.67f;
+        char myChar = 'k';
 
+        System.out.println("My Integer value is " + myInt);
+        System.out.println("My Double value is " + myDouble);
+        System.out.println("My Float value is " + myFloat);
+        System.out.println("My Char value is " + myChar);
     }
 }
 
