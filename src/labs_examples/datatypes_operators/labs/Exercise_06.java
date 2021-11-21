@@ -14,5 +14,15 @@ public class Exercise_06 {
 
         // write code here
 
+        double radius = 3.14;
+        double height = 5;
+        double pi = Math.PI;
+
+        double volume = pi*radius*radius*height;
+        double surfaceArea = 2*pi*radius*height + 2*pi*radius*radius;
+
+        System.out.println("Volume of Cylinder: " + volume + " cubic units");
+        System.out.println("Surface Area of Cylinder: " + surfaceArea + " units squared");
+
     }
 }
