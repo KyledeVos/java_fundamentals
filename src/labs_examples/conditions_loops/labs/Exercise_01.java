@@ -22,6 +22,7 @@ public class Exercise_01 {
         System.out.print("Enter a number between 1 and 1,000,000,000 to determine whether it is odd or even: ");
         // assign input to variable as int
         int number = scanner.nextInt();
+        scanner.nextLine();
 
         // write completed code here
 
