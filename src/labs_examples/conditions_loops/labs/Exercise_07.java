@@ -1,5 +1,7 @@
 package labs_examples.conditions_loops.labs;
 
+import java.util.Scanner;
+
 /**
  * Conditions and Loops Exercise 7: First vowel
  *
@@ -14,4 +16,28 @@ package labs_examples.conditions_loops.labs;
  */
 
 public class Exercise_07 {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter one word and ensure it has at least one vowel");
+        String input = scanner.nextLine();
+        char foundVowel = 'n';
+
+        int wordSize = input.length();
+
+        for(int i = 0; i<wordSize; i++){
+            char letter = input.charAt(i);
+            if(letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' || letter == 'u'){
+                foundVowel = letter;
+                        break;
+            }
+        }
+
+        if(foundVowel == 'n'){
+            System.out.println("No vowels in word " + input);
+        } else {
+            System.out.println("Word " + input + " has first vowel: " + foundVowel);
+        }
+    }
 }
