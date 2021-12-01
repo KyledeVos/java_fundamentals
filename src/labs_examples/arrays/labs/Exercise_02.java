@@ -23,6 +23,10 @@ public class Exercise_02 {
         int input = scanner.nextInt();
         scanner.nextLine();
 
+        if(input< 1 || input > 10){
+            System.out.println("Invalid Input");
+        }
+
         for(int i = 0; i<array.length; i++){
             if(array[i] == input ){
                 System.out.println("Index for " + input + " is " + i);
