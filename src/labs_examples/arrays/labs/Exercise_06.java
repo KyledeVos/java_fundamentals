@@ -20,10 +20,19 @@ public class Exercise_06 {
         int temp;
 
         // Question: in the for loop below, why do we divide "nums.length" by 2?
+
+            //Answer: This finds the middle of the 1-Dimensional Array which is the value that can
+            //remain in place; unaffected by the reverse. We will swap values around this middle value
+
         for(int i = 0; i < nums.length / 2; i++){
             // swap elements at indexes in array
             // you have two indices readily available for you to use "i" (which increments) and "nums.length"
             // you've also got this "temp" variable you can use to hold a value temporarily
+
+            temp = nums[nums.length - (i+ 1)];
+            nums[nums.length - (i+1)] = nums[i];
+            nums[i] = temp;
+
         }
         System.out.print("Contents of array after for loop - ");
         // print each element of the array to verify reverse order
