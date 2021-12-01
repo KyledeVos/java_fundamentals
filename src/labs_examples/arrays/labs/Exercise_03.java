@@ -18,6 +18,25 @@ package labs_examples.arrays.labs;
 public class Exercise_03 {
 
     public static void main(String[] args) {
+
+        int[][] threeTimesTable = new int[5][5];
+        int count = 3;
+
+        for(int i = 0; i< threeTimesTable.length; i++){
+            for(int j = 0 ; j <threeTimesTable[i].length; j++){
+                threeTimesTable[i][j] = count;
+                count+=3;
+            }
+        }
+
+        for(int[] i : threeTimesTable){
+            for(int j : i){
+                System.out.print(j + " ");
+            }
+            System.out.println();
+        }
+
+
         
     }
 }
