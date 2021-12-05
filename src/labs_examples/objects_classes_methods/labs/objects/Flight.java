@@ -10,7 +10,28 @@ public class Flight {
         Cargo cargo = new Cargo(3);
 
         Airplane airplane = new Airplane(turbines, wings, passengers, cargo, 1000);
-        System.out.println(airplane.toString());
+
+        System.out.println("Original Turbines: " + airplane.turbine.getNumberOfTurbines());
+        airplane.turbine.setNumberOfTurbines(2);
+        System.out.println("Number of Turbines after modification: " + airplane.turbine.getNumberOfTurbines());
+        System.out.println();
+
+        System.out.println("Changing fields of Airplane");
+        System.out.println("Original fuel capacity: " + airplane.getFuelCapacity() + "litres");
+        airplane.setFuelCapacity(2000);
+        System.out.println("Fuel Capacity after change: " + airplane.getFuelCapacity() + "litres");
+        System.out.println();
+
+        System.out.println("Original number of passengers: " + passengers.getNumberOfPassengers());
+        airplane.passengers.setNumberOfPassengers(100);
+        System.out.println("Number of Passengers After change: " + passengers.getNumberOfPassengers());
+        System.out.println();
+
+        System.out.println("Using toString Method");
+        System.out.println(airplane.cargo.toString());
+
+
+
 
 
     }
@@ -18,8 +39,8 @@ public class Flight {
 
 class Airplane{
 
-    int fuelCapacity;
-    int currentFuelLevel;
+    private int fuelCapacity;
+    private int currentFuelLevel;
 
     Turbines turbine;
     Wings wings;
@@ -33,6 +54,24 @@ class Airplane{
         this.cargo = cargo;
         this.fuelCapacity = fuelCapacity;
         currentFuelLevel = fuelCapacity;
+
+    }
+
+
+    public int getFuelCapacity() {
+        return fuelCapacity;
+    }
+
+    public void setFuelCapacity(int fuelCapacity) {
+        this.fuelCapacity = fuelCapacity;
+    }
+
+    public int getCurrentFuelLevel() {
+        return currentFuelLevel;
+    }
+
+    public void setCurrentFuelLevel(int currentFuelLevel) {
+        this.currentFuelLevel = currentFuelLevel;
     }
 
     @Override
@@ -50,13 +89,29 @@ class Airplane{
 
 
 class Turbines{
-    int numberOfTurbines;
-    int power;
+    private int numberOfTurbines;
+    private int power;
 
     public Turbines(int numberOfTurbines, int power){
         this.numberOfTurbines = numberOfTurbines;
         this.power = power;
 
+    }
+
+    public int getNumberOfTurbines() {
+        return numberOfTurbines;
+    }
+
+    public void setNumberOfTurbines(int numberOfTurbines) {
+        this.numberOfTurbines = numberOfTurbines;
+    }
+
+    public int getPower() {
+        return power;
+    }
+
+    public void setPower(int power) {
+        this.power = power;
     }
 
     @Override
@@ -69,7 +124,7 @@ class Turbines{
 }
 
 class Wings{
-    double wingSpan;
+    private double wingSpan;
 
     public Wings(double wingSpan) {
         this.wingSpan = wingSpan;
@@ -81,11 +136,19 @@ class Wings{
                 "wingSpan=" + wingSpan +
                 '}';
     }
+
+    public double getWingSpan() {
+        return wingSpan;
+    }
+
+    public void setWingSpan(double wingSpan) {
+        this.wingSpan = wingSpan;
+    }
 }
 
 class Passengers{
-    int numberOfPassengers;
-    int averagePassengerWeight = 0;
+    private int numberOfPassengers;
+    private int averagePassengerWeight = 0;
 
     public Passengers(int numberOfPassengers) {
         this.numberOfPassengers = numberOfPassengers;
@@ -99,10 +162,26 @@ class Passengers{
                 ", averagePassengerWeight=" + averagePassengerWeight +
                 "kg}";
     }
+
+    public int getNumberOfPassengers() {
+        return numberOfPassengers;
+    }
+
+    public void setNumberOfPassengers(int numberOfPassengers) {
+        this.numberOfPassengers = numberOfPassengers;
+    }
+
+    public int getAveragePassengerWeight() {
+        return averagePassengerWeight;
+    }
+
+    public void setAveragePassengerWeight(int averagePassengerWeight) {
+        this.averagePassengerWeight = averagePassengerWeight;
+    }
 }
 
 class Cargo{
-    int totalCargoWeight;
+    private int totalCargoWeight;
 
     public Cargo(int totalCargoWeight) {
         this.totalCargoWeight = totalCargoWeight;
@@ -113,5 +192,13 @@ class Cargo{
         return "Cargo{" +
                 "totalCargoWeight=" + totalCargoWeight +
                 "tons }";
+    }
+
+    public int getTotalCargoWeight() {
+        return totalCargoWeight;
+    }
+
+    public void setTotalCargoWeight(int totalCargoWeight) {
+        this.totalCargoWeight = totalCargoWeight;
     }
 }
