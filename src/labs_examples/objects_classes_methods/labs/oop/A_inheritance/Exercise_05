@@ -1,7 +1,12 @@
 
 Without running the code below, please tell me what will print. Why?
 
+Answer:
+Parent Called
+Child Called
 
+The child class constructor has been called in the declaration, however the
+constructor from the parent class must be called first
 
 
 public class InheritanceTest
