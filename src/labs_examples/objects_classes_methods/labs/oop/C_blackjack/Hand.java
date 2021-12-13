@@ -32,9 +32,7 @@ public class Hand {
         return handValue;
     }
 
-
-    public void addCard(Card card){
-        cards.add(card);
-
+    public void resetHandValue(){
+        handValue = 0;
     }
 }
