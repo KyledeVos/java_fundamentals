@@ -7,3 +7,36 @@ A payroll and HR application? Is there something you could use in your day to da
 application around?
 
 Imagine it, design it, build it, test it. Have some fun. Reach out anytime you're stuck.
+
+
+Project - Crazy 8 Card Game
+
+1 Player
+2 Computer Players
+
+Game Objective: Be the first player to have no cards
+
+Crazy Eight Rules:
+
+1) Each player is dealt 5 (or 7) cards from the deck
+2) The deck is placed in the centre and the top card is revealed and placed next to the deck, creating a seprate pile
+
+3) A player must place a card face up on the previous face up card - matching by either suite or number
+4) If a player is unable to do so, they must draw a card and may place ONLY that card on the pile if
+    a match should be present. Their turn will then end
+
+ 5) Certain Cards are known as power cards:
+
+    Ace - Reverses Direction of Play
+    Two - next player must pick up two cards
+    Eight - Can be played on anything and allows the player to declare the suit
+
+    Player's can end with power cards
+
+  6) In the real world the deck may run out during play. When this happens any player can take all cards that have been
+      played (except for the top card) and reshuffle to recreate the deck. However for this project the deck will be topped
+      up after every turn
+
+  7) There is no limit to the number of cards any player can have in their hand
+
+  8) Gameplay continues until one player is unable to have no cards in their hand. This player loses
