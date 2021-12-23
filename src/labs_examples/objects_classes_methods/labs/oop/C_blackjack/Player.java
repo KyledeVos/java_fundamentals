@@ -5,10 +5,12 @@ public class Player {
     String name;
     Hand hand;
     int potValue;
+    int totalGamesWon;
 
     public Player(String name) {
         this.name = name;
         hand = new Hand();
+        totalGamesWon = 0;
     }
 
     public void setPotValue(int potValue){
@@ -33,9 +35,14 @@ public class Player {
     }
 
     public boolean computerAI(Player player){
-        if(hand.getHandValue()<16 || (player.hand.getHandValue() > hand.getHandValue() && player.hand.getHandValue() <=21)){
-            return true;
-        }
-        return false;
+        return hand.getHandValue() < 16 || (player.hand.getHandValue() > hand.getHandValue() && player.hand.getHandValue() <= 21);
+    }
+
+    public int getTotalGamesWon() {
+        return totalGamesWon;
+    }
+
+    public void setTotalGamesWon() {
+        this.totalGamesWon++;
     }
 }

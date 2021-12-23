@@ -6,6 +6,7 @@ import java.util.Random;
 public class Deck {
     Card[] cards;
     ArrayList<Integer> usedCards;
+    static int totalGamesPlayed = 0;
 
     public Deck() {
         this.cards = new Card[52];
@@ -61,5 +62,13 @@ public class Deck {
 
     public Card[] getCards() {
         return cards;
+    }
+
+    public static void setTotalGamesPlayed(int increment) {
+        totalGamesPlayed+=increment;
+    }
+
+    public static int getTotalGamesPlayed() {
+        return totalGamesPlayed;
     }
 }

@@ -87,6 +87,15 @@ public class BlackjackController {
                     break;
 
                 case 5:
+                    System.out.println("Game Statistics");
+                    System.out.println("Total Games Played: " + Deck.getTotalGamesPlayed());
+                    System.out.println("Player has won " + player.totalGamesWon + " games.");
+                    System.out.println("Computer has won " + comp.totalGamesWon + " games.");
+                    System.out.println();
+                    menu();
+                    break;
+
+                case 6:
                     System.out.println("Game has ended");
                     quit = true;
                     break;
@@ -109,7 +118,8 @@ public class BlackjackController {
                            "2 - Check Balance\n" +
                            "3 - Check Computer Balance\n" +
                            "4 - Play BlackJack\n" +
-                           "5 - Quit Game");
+                           "5 - Game Stats\n" +
+                           "6 - Quit Game");
     }
 
     public static void addToPotAmount(Player player, int bet){
@@ -126,6 +136,7 @@ public class BlackjackController {
         //Creates new Deck for every game
         Deck deck = new Deck();
         deck.populateDeck();
+        deck.setTotalGamesPlayed(1);
 
         //clear hand from previous games
         player.hand.cards.clear();
@@ -178,6 +189,7 @@ public class BlackjackController {
                 System.out.println();
                 System.out.println("Player: " + player.name + " is bust");
                 System.out.println("Computer wins");
+                comp.setTotalGamesWon();
 
                 //sort bets and pots
                 if(player.potValue== betValue){
@@ -211,6 +223,7 @@ public class BlackjackController {
             if (comp.hand.bust()) {
                 System.out.println("Computer bust!");
                 System.out.println("Player wins");
+                player.setTotalGamesWon();
 
                 //sort bets and pots
                 if(comp.potValue== betValue){
@@ -233,6 +246,7 @@ public class BlackjackController {
 
                 if (player.hand.getHandValue() > comp.hand.getHandValue()) {
                     System.out.println(player.name + " wins");
+                    player.setTotalGamesWon();
 
                     //sort bets and pots
                     if(comp.potValue== betValue){
@@ -252,6 +266,7 @@ public class BlackjackController {
 
                 } else if (player.hand.getHandValue() < comp.hand.getHandValue()) {
                     System.out.println("Computer wins");
+                    comp.setTotalGamesWon();
 
                     //sort bets and pots
                     if(player.potValue== betValue){
@@ -283,11 +298,7 @@ public class BlackjackController {
 
     public static boolean playerOutOfMoney(Player player){
 
-        if(player.getPotValue()==0){
-            return true;
-        } else{
-            return false;
-        }
+        return player.getPotValue() == 0;
     }
 
     public static int getPlayerBet(Player player, Player comp){
