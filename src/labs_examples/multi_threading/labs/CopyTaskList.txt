@@ -1,0 +1,9 @@
+1) Check car for damage with client and mark on sheet
+2) Test Drive car with client and listen for engine issues
+3) Request full list of any mechanical defects from client
+4) Sign Car in
+5) Send car for wash and steam clean engine
+6) Mechanic to do evaluation of problems noted by client and check for additional issues
+7) Service vehicle
+8) Valet wash car
+9) Client to do check of vehicle performance and confirm no additional damage
