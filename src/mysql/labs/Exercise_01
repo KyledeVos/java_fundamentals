@@ -6,34 +6,154 @@
  *
  *      1.) If you haven't already, create the college database as instructed here:
  *              https://platform.codingnomads.co/learn/mod/page/view.php?id=2133
- *      2.) Create a new table "students" with the following fields:
- *          a. id (auto increment)
- *          b. first_name
- *          c. age
+ *      2.) Create a new table "students" with the  following fields:
+
+  *          a. id (auto increment)
+  *          b. first_name
+  *          c. age
+
+            NOTE: database already has students table which will have columns altered to match above:
+
+            //////////////////////////////////////////////////////////
+
+            DELETE  FROM university.students WHERE id >0 AND id<5;
+
+            ALTER TABLE university.students
+            DROP COLUMN last_name;
+
+            ALTER TABLE `university`.`students`
+            CHANGE COLUMN `email` `age` INT NOT NULL ;
+            //////////////////////////////////////////////////////////
+
+        3.) Create a new table "teachers" with the following fields:
+  *          a. id (auto increment)
+  *          b. first_name
+  *          c. last_name
+  *          d. subject
+
+        /////////////////////////////////////////////////////////////
+
+        DROP TABLE IF EXISTS teachers;
+        CREATE TABLE teachers(
+        id INT NOT NULL AUTO_INCREMENT,
+        first_name VARCHAR(200) NOT NULL,
+        last_name VARCHAR(200) NOT NULL,
+        subject VARCHAR(300) NOT NULL,
+        PRIMARY KEY (id)
+        );
+
+        ////////////////////////////////////////////////////////////
  *
- *      3.) Create a new table "teachers_students" with the following fields:
+ *      4.) Create a new table "teachers_students" with the following fields:
  *          a. id (auto increment)
  *          b. student_id
  *          c. teacher_id
  *
- *      4.) Create a new table "teachers" with the following fields:
- *          a. id (auto increment)
- *          b. first_name
- *          c. last_name
- *          d. subject
- *
  *      5.) Create the appropriate foreign key constraints in the "teachers_students" table.
+
+        ///////////////////////////////////////////////////////////
+
+        DROP TABLE IF EXISTS teachers_students;
+        CREATE TABLE teachers_students(
+        id INT NOT NULL AUTO_INCREMENT,
+        student_id INT NOT NULL,
+        teacher_id INT NOT NULL,
+        PRIMARY KEY (id),
+        KEY student_id_idx(student_id),
+        KEY teacher_id_idx(teacher_id),
+        CONSTRAINT students_student_id FOREIGN KEY(student_id) REFERENCES students(id) ON DELETE CASCADE ON UPDATE CASCADE,
+        CONSTRAINT teacher_id FOREIGN KEY(teacher_id) REFERENCES teachers(id) ON DELETE CASCADE ON UPDATE CASCADE
+        );
+
+        ////////////////////////////////////////////////////////////
  *
  *      6.) Populate each table with at least 5 records. Use the "teachers_students" to associate various
  *          teachers with various students.
+
+        ////////////////////////////////////////////////////////////////
+
+        INSERT INTO courses VALUES
+        (4, 'Math', 4),
+        (5, 'English', 3),
+        (6, 'Physics', 4);
+
+        INSERT INTO students VALUES
+        (1, 'Marco', 27),
+        (2, 'Ryan', 34),
+        (3, 'Steve', 29),
+        (4, 'Mary', 23),
+        (5, 'Gary', 28),
+        (6, 'Jennifer',  30),
+        (7, 'Amy',  21);
+
+        INSERT INTO teachers VALUES
+        (1, 'Gwen', 'Davids', 'Computer Science'),
+        (2, 'Daniel', 'Backfield', 'Literature'),
+        (3, 'Fred', 'Nickson', 'Design'),
+        (4, 'Gwen', 'Michaels', 'English'),
+        (5, 'Sandy', 'Ocean', 'Math'),
+        (6, 'Eric', 'Potch', 'Design'),
+        (7, 'Amanda', 'Potch', 'Computer Science'),
+        (8, 'Eric', 'Potch', 'Math'),
+        (9, 'Peter', 'McClaude', 'Physics');
+
+        INSERT INTO students_courses VALUES
+        (1, 1, 1), (2, 1, 2), (3, 1, 3), (4, 1, 4), (5, 1, 5),
+        (6, 2, 2), (7, 2, 3), (8, 2, 4), (9, 2, 6),
+        (10, 3, 1) , (11, 3, 3), (12, 3, 4) , (13, 3, 5) , (14, 3, 6),
+        (15 , 4, 1), (16, 4, 2), (17, 4, 3), (18, 4, 4), (19, 4, 5) , (20, 4, 6),
+        (22, 5,  3) , (23, 5, 4) , (24, 5, 5), (25, 5, 6),
+        (26, 6, 2) , (27, 6, 1) , (28 , 6, 4) , (29 , 6 , 5) , (30, 6 , 6) ,
+        (31 , 7 , 3) , (32, 7, 1), (33, 7, 2) , (34 , 7 , 4) , (35, 7, 5), (36 , 7 , 6);
+
+        INSERT INTO teachers_students VALUES
+        (1, 1, 1) , (2, 1, 2), (3, 1, 3) , (4, 1, 5) , (5 , 1 , 4),
+        (6 , 2, 2) , (7 , 2, 6) , (8 , 2, 5) , (9, 2, 9),
+        (10, 3, 7) , (11, 3, 6) , (12, 3, 8), (13, 3, 4) , (14, 3, 9),
+        (15, 4, 7), (16, 4, 2), (17, 4, 3), (18, 4, 5), (19, 4, 4), (20, 4, 9),
+        (21, 5, 6) , (22, 5, 8), (23, 5, 4) , (24, 5, 4), (25, 5, 9),
+        (26, 6 , 2) , (27, 6, 7) , (28, 6 , 8), (29, 6 , 4) , (30, 6 , 9),
+        (31 , 7, 3) , (32 , 7 , 1) , (33, 7 , 2) , (34 , 7 , 5) , (35 , 7 , 4) , (36 , 7 , 9);
+
+
+        ///////////////////////////////////////////////////////////////
  *
  *      7.) Write queries (and paste them below) for each of the following tasks:
  *          a. select all students
- *          b. select all teacher who teach "Math" (choose a subject you included)
+
+                   SELECT * FROM students;
+
+ *          b. select all teacher(s) who teach "Math" (choose a subject you included)
+
+                  SELECT * FROM teachers WHERE subject = 'Math';
+
  *          c. use a join query to select all students with a certain teacher
+
+                SELECT s.first_name AS student_name , t.first_name AS teacher_name, t.last_name AS teacher_lastname
+                FROM students s
+                JOIN teachers_students ts
+                ON s.id = ts.student_id
+                JOIN teachers t
+                ON ts.teacher_id = t.id
+                WHERE t.first_name = 'sandy';
+
  *          d. use a join query to select all students with taking a certain subject
+
+                select s.first_name AS student_name , c.name AS course_name
+                FROM students s
+                JOIN students_courses cs
+                ON s.id = cs.student_id
+                JOIN courses c
+                ON c.id = cs.course_id
+                WHERE c.name = 'design';
+
  *          e. update a record in the student table
- *          f. add a record to the teacher table
+
+                UPDATE university.students SET first_name = 'Steven' WHERE id = 3;
+
+ *          f. exampleClass a record to the teacher table
+
+                //Do not understand
  *
  *       8.) Export the schema to a dump file and copy it to this folder.
  *
