@@ -5,16 +5,173 @@
 *   Now that you have your air travel database all set up and populated, please demonstrate how to:
 *
 *       1.) Query all flights on a specific day
+
+        SELECT * FROM flights WHERE flight_time = '2022-03-01';
+
 *       2.) Query all flights between two specific cities on a specific day
+
+        SELECT * FROM flights WHERE flight_time = '2022-03-01'
+        AND start_id = 1 and end_id = 3;
+
 *       3.) Query all passengers on a specific flight between two specific cities today
+
+        SELECT p.first_name, p.last_name, f.id AS flight_id
+        FROM tickets t
+        JOIN flights f
+        ON f.id = t.flight_id
+        JOIN passengers p
+        ON t.passenger_id = p.id
+        WHERE f.id = 5;
+
 *       4.) Query the flight information for a specific passenger on a specific flight
-*       5.) Query the passenger information for a specific user on a specific flight yesterday
+
+        SELECT f.id AS flight_id, l.name AS travelling_from, loc.name AS travelling_to, f.flight_time
+        FROM tickets t
+        JOIN flights f
+        ON t.flight_id = f.id
+        JOIN passengers p
+        ON t.passenger_id = p.id
+        JOIN locations l
+        ON f.start_id = l.id
+        JOIN locations loc
+        ON f.end_id = loc.id
+        WHERE p.id = 5;
+
+*       5.) Query the passenger information for a specific user(passenger) on a specific flight yesterday
+
+        SELECT p.first_name, p.last_name, f.id AS flight_number, p.meal_pref,p.email
+        FROM passengers p
+        JOIN tickets t
+        ON p.id = t.passenger_id
+        JOIN flights f
+        ON t.flight_id = f.id
+        WHERE p.first_name = 'Homer' AND f.id = 2;
+
 *       6.) Query the number of flights between two specific cities this week, month, and year
+
+        SELECT COUNT(f.id) AS number_of_flights_in_week
+        FROM flights f
+        WHERE f.start_id = 1 AND f.end_id = 4
+        AND f.flight_time > "2022-02-28" AND f.flight_time<"2022-03-07";
+
+        SELECT COUNT(f.id) AS number_of_flights_in_month
+        FROM flights f
+        WHERE f.start_id = 1 AND f.end_id = 4
+        AND f.flight_time > "2022-02-28" AND f.flight_time<"2022-03-31";
+
+        SELECT COUNT(f.id) AS number_of_flights_in_year
+        FROM flights f
+        WHERE f.start_id = 1 AND f.end_id = 4
+        AND f.flight_time > "2021-12-31" AND f.flight_time<"2023-01-01";
+
 *       7.) Query the number of passengers that travelled between two specific cities today, this week, month and year
+
+        SELECT COUNT(p.id), locations.name AS travelled_from, loc.name AS travelled_to
+        FROM passengers p
+        JOIN tickets t
+        ON p.id = t.passenger_id
+        JOIN flights f
+        ON t.flight_id = f.id
+        JOIN locations
+        ON f.start_id = locations.id
+        JOIN locations loc
+        ON f.end_id = loc.id
+        WHERE 	f.start_id = 21 AND f.end_id =25
+        AND f.flight_time = '2022-03-01';
+
+        SELECT COUNT(p.id), locations.name AS travelled_from, loc.name AS travelled_to
+        FROM passengers p
+        JOIN tickets t
+        ON p.id = t.passenger_id
+        JOIN flights f
+        ON t.flight_id = f.id
+        JOIN locations
+        ON f.start_id = locations.id
+        JOIN locations loc
+        ON f.end_id = loc.id
+        WHERE 	f.start_id = 21 AND f.end_id =25
+        AND f.flight_time >= '2022-03-01' AND f.flight_time <='2022-03-07';
+
+        SELECT COUNT(p.id), locations.name AS travelled_from, loc.name AS travelled_to
+        FROM passengers p
+        JOIN tickets t
+        ON p.id = t.passenger_id
+        JOIN flights f
+        ON t.flight_id = f.id
+        JOIN locations
+        ON f.start_id = locations.id
+        JOIN locations loc
+        ON f.end_id = loc.id
+        WHERE 	f.start_id = 21 AND f.end_id =25
+        AND f.flight_time >= '2022-03-01' AND f.flight_time <='2022-03-31';
+
+        SELECT COUNT(p.id), locations.name AS travelled_from, loc.name AS travelled_to
+        FROM passengers p
+        JOIN tickets t
+        ON p.id = t.passenger_id
+        JOIN flights f
+        ON t.flight_id = f.id
+        JOIN locations
+        ON f.start_id = locations.id
+        JOIN locations loc
+        ON f.end_id = loc.id
+        WHERE 	f.start_id = 21 AND f.end_id =25
+        AND f.flight_time >= '2022-01-01' AND f.flight_time <='2022-12-31';
+
 *       8.) Insert records for new flights between airports
+
+        LOCK TABLES flights WRITE;
+        INSERT INTO flights VALUES
+        (31, 1, 5, 1, '2022-09-20'),
+        (32 , 4, 6, 4, '2022-09-20'),
+        (33, 7 , 10, 6, '2022-10-01');
+        UNLOCK TABLES;
+
 *       9.) Insert records for new tickets and passengers on specific flights
+
+        LOCK TABLES tickets WRITE;
+        INSERT INTO tickets VALUES
+        (30, 1, 31), (31, 3, 31), (32, 4, 32), ( 33, 5, 33);
+        UNLOCK TABLES;
+
 *       10.) Update meal preference (or something similar) for a specific passenger on a specific flight
+
+        UPDATE air_travel.passengers
+        SET meal_pref = 'chicken' WHERE id = 19;
+
 *       Bonus: Have some fun - get creative - what else can you do? Flex those SQL muscles and show us what
 *           you've got! :)
+
+        11) Count the number of passengers that were flying on a specific day
+
+        SELECT COUNT(p.id) AS number_of_passengers, f.flight_time AS date_of_flight
+        FROM passengers p
+        JOIN tickets t
+        ON t.passenger_id = p.id
+        JOIN flights f
+        ON t.flight_id = f.id
+        WHERE f.flight_time = '2022-03-01';
+
+        12) Count the number of passengers that have 'seafood' as a meal preference
+
+        SELECT COUNT(p.id) FROM passengers p
+        WHERE p.meal_pref = 'seafood';
+
+        13) Count the number of flights each passenger has had
+
+        SELECT COUNT(f.id) AS number_of_flights, p.first_name, p.last_name
+        FROM tickets t
+        JOIN flights f
+        ON t.flight_id= f.id
+        JOIN passengers p
+        ON p.id = t.passenger_id
+        GROUP BY (f.id)
+        ORDER BY number_of_flights DESC;
+
+
+
+
+
+
 *
 */
