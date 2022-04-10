@@ -25,7 +25,7 @@ public class Car {
     }
 
     public void setEngineSize(String engineSize) {
-        this.engineSize = engineSize;
+        this.engineSize =  engineSize;
     }
 
     public int getYear() {
