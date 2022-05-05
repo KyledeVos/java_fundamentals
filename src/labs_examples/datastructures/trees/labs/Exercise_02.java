@@ -15,3 +15,26 @@ package labs_examples.datastructures.trees.labs;
     Here is a fantastic set of relevant interview questions: https://www.techiedelight.com/trie-interview-questions/
 
  */
+
+public class Exercise_02 {
+
+    public static void main(String[] args) {
+        TrieClass trieClass = new TrieClass();
+        trieClass.insert("hello");
+        trieClass.insert("bye");
+        trieClass.insert("height");
+        trieClass.insert("man");
+        trieClass.insert("mango");
+        trieClass.insert("aero");
+        System.out.println("Does Trie Contain bye: " + trieClass.search("bye"));
+        System.out.println("Does Trie Contain byte: " + trieClass.search("byte"));
+        trieClass.print();
+        System.out.println();
+        trieClass.remove("bye");
+        trieClass.remove("mango");
+        trieClass.remove("height");
+        System.out.println();
+        trieClass.print();
+
+    }
+}
